@@ -1,0 +1,100 @@
+(function(d, l, h, e, c, t, u, p, m, q, n, r) {
+    function v() {
+        for (var a = 0; link = l.links[a++];)
+            if (/dtpCallback\.l/.test(link.href)) {
+                var b = decodeURIComponent(link.href).match(/dtpCallback\.l="([^"]+)/)[1];
+                link.href = b;
+                w(link, c);
+                if (d[e].l === b) {
+                    var f = link.href;
+                    setTimeout(function() {
+                        d.location = f
+                    }, 0)
+                }
+            } else /\/?click($|(\/[0-9]+)?$)/.test(link.pathname) && w(link, c);
+        b = l.querySelectorAll(".dtpcnt");
+        a = 0;
+        for (var g = b.length; a < g; a++) b[a].className = b[a].className.replace(/(^|\s+)dtpcnt($|\s+)/g, "")
+    }
+
+    function w(a, b) {
+        if (b.links) {
+            var f =
+                z(a);
+            if (!(f > b.links.length - 1)) {
+                var g = b.links[f];
+                b = A(a, g.redirectUrl);
+                a.href = b;
+                g.beaconUrl && a.addEventListener("click", function(k) {
+                    x(g.beaconUrl)
+                })
+            }
+        }
+    }
+
+    function A(a, b) {
+        return b + a.search.replace("?", "&") + a.hash
+    }
+
+    function z(a) {
+        a = parseInt(a.pathname.replace(/\/(int)?click\/?/, ""), 10);
+        return isNaN(a) ? 0 : a - 1
+    }
+
+    function x(a) {
+        if ((p = RegExp("[?&]cpid(=([^&#]*)|&|#|$)").exec(d.location.href)) && p[2]) {
+            t = p[2];
+            q = "vl-cl-" + t;
+            var b = q,
+                f = l.cookie.match(new RegExp("(^| )" + b + "=([^;]+)"));
+            u = f ? f.pop() : h.getItem(b + "-expires") &&
+                +h.getItem(b + "-expires") > (new Date).getTime() ? h.getItem(b) : null;
+            u && (a += (-1 === a.indexOf("?") ? "?" : "&") + "uw=no");
+            y(q, "1", r)
+        }
+        "sendBeacon" in navigator ? navigator.sendBeacon(a) : (b = new XMLHttpRequest, b.open("POST", a, !1), b.send())
+    }
+
+    function y(a, b, f, g) {
+        var k = new Date;
+        k.setTime(k.getTime() + (g || 864E5));
+        l.cookie = a + "=" + b + "; " + f + "samesite=Strict; expires=" + k.toGMTString() + "; path=/";
+        h.setItem(a, b);
+        h.setItem(a + "-expires", k.getTime())
+    }
+    r = "https:" === d.location.protocol ? "secure; " : "";
+    v();
+    d[e] && (n = d[e].q, d[e] = function(a) {
+            a(c)
+        },
+        d[e].params = c, y("vl-cep", c.clickParams, r));
+    d[e].getOfferLink = function(a) {
+        a = a ? a - 1 : 0;
+        if (a > c.links.length - 1) console.error("Invalid offer number");
+        else return c.links[a].redirectUrl
+    };
+    d[e].getTokens = function() {
+        var a = {},
+            b;
+        for (b in c) a[b] = c[b];
+        delete a.links;
+        return a
+    };
+    d[e].registerClick = function(a) {
+        a = a ? a - 1 : 0;
+        a > c.links.length - 1 ? console.error("Invalid click number") : c.links[a].beaconUrl ? x(c.links[a].beaconUrl) : console.error("Direct method must be enabled to manually register click")
+    };
+    d[e].generateLinks = function() {
+        v()
+    };
+    if (n) {
+        m = 0;
+        for (var B = n.length; m < B; m++) n[m][0](c)
+    }
+})(window, document, localStorage, "dtpCallback", {
+    "clickParams": "cep=LF_7UouKe6EnIX7GHYUV-f-5ZA16RR28_QE19pI23spyg8qXMqeS92t4bdTbHfDr_iT6RGJ-D5nKKub7vCjeEV-akj6WUWiW-xPMSSXsXu7DlUdkFwESQoFSZEa4-eog_loGGcIJLeJj8J26SNCFXTligWKuO3WJIECHlOofsoJAbWOkmjesR-bqcLG3ltC_n3dV_mOKq_Mmbj9ymw3foKxV3FXbBirtJh2xU_GKEeKl5mLsn86OGGhMf6i53Joh60uqaU-yb26C7Kj0Dy8TZ25YBPJ3bqJv4f3Xqp76qLUCrErxVpLYLhMtyLmdCHt2dK-xP4AU4thmbQ4Q3Eez6UhZ6kb9s8vsHDZdTTziQ1_5PWflZAZN4vX7dlQgYXSidbQgHl2pTq_pK7_jgc7qtNfGN6UWFSfe9wIQNIaygezS0Roa3qrePVJRPPeCF92ryorWABXDCW-kPuZxnQW_QbXWRqHFpZAznZhYf684XYF2IkOoWv5tZmUGmvoWI8DYGqYeeu_zy9BiFuQDshXj1qUMFYki8qAn-g8YWz99yn2MgZ5nJjc4slKW0TBKkMKYabM4GZ47GrmQmim4StbmXuFDpok27G2zpLgG9MXXClM",
+    "links": [{
+        "beaconUrl": null,
+        "redirectUrl": "https://track.discountssphere.com/click/1?cep=LF_7UouKe6EnIX7GHYUV-f-5ZA16RR28_QE19pI23spyg8qXMqeS92t4bdTbHfDr_iT6RGJ-D5nKKub7vCjeEV-akj6WUWiW-xPMSSXsXu7DlUdkFwESQoFSZEa4-eog_loGGcIJLeJj8J26SNCFXTligWKuO3WJIECHlOofsoJAbWOkmjesR-bqcLG3ltC_n3dV_mOKq_Mmbj9ymw3foKxV3FXbBirtJh2xU_GKEeKl5mLsn86OGGhMf6i53Joh60uqaU-yb26C7Kj0Dy8TZ25YBPJ3bqJv4f3Xqp76qLUCrErxVpLYLhMtyLmdCHt2dK-xP4AU4thmbQ4Q3Eez6UhZ6kb9s8vsHDZdTTziQ1_5PWflZAZN4vX7dlQgYXSidbQgHl2pTq_pK7_jgc7qtNfGN6UWFSfe9wIQNIaygezS0Roa3qrePVJRPPeCF92ryorWABXDCW-kPuZxnQW_QbXWRqHFpZAznZhYf684XYF2IkOoWv5tZmUGmvoWI8DYGqYeeu_zy9BiFuQDshXj1qUMFYki8qAn-g8YWz99yn2MgZ5nJjc4slKW0TBKkMKYabM4GZ47GrmQmim4StbmXuFDpok27G2zpLgG9MXXClM"
+    }]
+});
