@@ -1,7 +1,7 @@
 let questions = [
-    'Do you shop at Walmart?',
-    'Have you spent over $1000 in the past month?',
-    'Would you recommend Walmart Gift Cards Promotion to friends and family?'
+    'Do you use any Vacuums?',
+    'Have you try with Dyson Vacuum products?',
+    'Would you recommend Dyson Vacuum to friends and family?'
   ];
   let current = 0;
   
@@ -35,9 +35,9 @@ let questions = [
   
   // Fake Comments
   const comments = [
-    { name: 'Susan T.', text: 'I just got mine in the mail today! THANK YOU Walmart 🙌', img: 'https://randomuser.me/api/portraits/women/68.jpg' },
-    { name: 'Greg P.', text: 'At this point, anything helps. Groceries are crazy expensive lately...', img: 'https://randomuser.me/api/portraits/men/42.jpg' },
-    { name: 'Linda K.', text: 'Answered 3 questions and boom, $1000 card coming. Easy as that!', img: 'https://randomuser.me/api/portraits/women/55.jpg' },
+    { name: 'Susan T.', text: 'I just got mine in the mail today! THANK YOU Dyson! 🙌', img: 'https://randomuser.me/api/portraits/women/68.jpg' },
+    { name: 'Greg P.', text: 'Nice!!! this Dyson Vacuum works super!', img: 'https://randomuser.me/api/portraits/men/42.jpg' },
+    { name: 'Linda K.', text: 'Answered 3 questions and boom, super big discount comes Easy as that!', img: 'https://randomuser.me/api/portraits/women/55.jpg' },
     { name: 'Robert M.', text: 'Didn’t think it was real but my wife got hers too!', img: 'https://randomuser.me/api/portraits/men/60.jpg' }
   ];
   
@@ -53,4 +53,5 @@ let questions = [
     }
   }
   setInterval(showComment, 1000);
+
   
