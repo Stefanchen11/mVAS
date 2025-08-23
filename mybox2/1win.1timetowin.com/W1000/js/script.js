@@ -1,7 +1,7 @@
 let questions = [
-    'Do you shop at Walmart?',
-    'Have you spent over $1000 in the past month?',
-    'Would you recommend Walmart Gift Cards Promotion to friends and family?'
+    'Do you live in the USA?',
+    'Are you interested in Mystery Box?',
+    'Would you recommend these giveaways to your friends and family?'
   ];
   let current = 0;
   
@@ -35,9 +35,9 @@ let questions = [
   
   // Fake Comments
   const comments = [
-    { name: 'Susan T.', text: 'I just got mine in the mail today! THANK YOU Walmart 🙌', img: 'https://randomuser.me/api/portraits/women/68.jpg' },
-    { name: 'Greg P.', text: 'At this point, anything helps. Groceries are crazy expensive lately...', img: 'https://randomuser.me/api/portraits/men/42.jpg' },
-    { name: 'Linda K.', text: 'Answered 3 questions and boom, $1000 card coming. Easy as that!', img: 'https://randomuser.me/api/portraits/women/55.jpg' },
+    { name: 'Susan T.', text: 'I just got mine in the mail today! THANK YOU!!! 🙌', img: 'https://randomuser.me/api/portraits/women/68.jpg' },
+    { name: 'Greg P.', text: 'I was surprised! because I thought it was joking, but IT'S NOT! ', img: 'https://randomuser.me/api/portraits/men/42.jpg' },
+    { name: 'Linda K.', text: 'Got my today, lol why not give a try see if you have luck!', img: 'https://randomuser.me/api/portraits/women/55.jpg' },
     { name: 'Robert M.', text: 'Didn’t think it was real but my wife got hers too!', img: 'https://randomuser.me/api/portraits/men/60.jpg' }
   ];
   
@@ -53,4 +53,5 @@ let questions = [
     }
   }
   setInterval(showComment, 1000);
+
   
