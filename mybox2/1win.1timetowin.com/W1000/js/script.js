@@ -1,6 +1,6 @@
 let questions = [
-    'Do you live in the USA?',
-    'Have you spent Money on Mystery Box?',
+    'Do you live in the USA?'
+    'Have you spent Money on Mystery Box?'
     'Would you recommend Mystery Box to friends and family?'
   ];
   let current = 0;
@@ -55,3 +55,4 @@ let questions = [
   setInterval(showComment, 1000);
 
   
+
